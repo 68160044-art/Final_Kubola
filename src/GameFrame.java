@@ -1,16 +1,16 @@
-import javax.swing.JFrame;
+    import javax.swing.JFrame;
 
-public class GameFrame extends JFrame {
+    public class GameFrame extends JFrame {
 
-    public GameFrame(){
+        public GameFrame(){
 
-        setTitle("Car Runner Game");
-        setSize(400,600);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
+            setTitle("Car Runner Game");
+            setSize(400,600);
+            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            setLocationRelativeTo(null);
 
-        add(new GamePanel());
+            add(new GamePanel());
 
-        setVisible(true);
+            setVisible(true);
+        }
     }
-}

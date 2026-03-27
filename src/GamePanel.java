@@ -54,7 +54,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
     public void actionPerformed(ActionEvent e){
 
-        // ใช้ Overloading ตรงนี้ 🔥
+        // ใช้ Overloading
         enemy.move(speed);
 
         coin.move();
