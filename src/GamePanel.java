@@ -9,7 +9,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
     private Coin coin;
 
     private Image roadImage;
-
     private Timer timer;
 
     private int score = 0;
@@ -29,8 +28,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
         enemy = new EnemyCar();
         coin = new Coin();
 
-        highScore = High_Score.loadHighScore();
-
+        highScore = HighScore.loadHighScore();
         coin.resetPosition(enemy.getX());
 
         timer = new Timer(30,this);
@@ -56,15 +54,16 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
     public void actionPerformed(ActionEvent e){
 
+        // ใช้ Overloading ตรงนี้ 🔥
         enemy.move(speed);
-        coin.move(speed);
 
-        // ชนรถศัตรู
+        coin.move();
+
         if(player.getBounds().intersects(enemy.getBounds())){
 
             if(score > highScore){
                 highScore = score;
-                High_Score.saveHighScore(highScore);
+                HighScore.saveHighScore(highScore);
             }
 
             timer.stop();
@@ -80,29 +79,26 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
                     "Play Again"
             );
 
-            if(choice == 0){
+            if(choice==0){
                 restartGame();
             }else{
                 System.exit(0);
             }
         }
 
-        // เก็บเหรียญ
         if(player.getBounds().intersects(coin.getBounds())){
             score += 5;
             coinCount++;
             coin.resetPosition(enemy.getX());
         }
 
-        // รถออกจอ
-        if(enemy.getY() > 600){
+        if(enemy.getY()>600){
             enemy.resetPosition();
             score++;
             speed++;
         }
 
-        // เหรียญออกจอ
-        if(coin.getY() > 600){
+        if(coin.getY()>600){
             coin.resetPosition(enemy.getX());
         }
 
@@ -110,7 +106,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
     }
 
     private void restartGame(){
-
         score = 0;
         coinCount = 0;
         speed = 5;
@@ -123,11 +118,11 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
     public void keyPressed(KeyEvent e){
 
-        if(e.getKeyCode() == KeyEvent.VK_LEFT){
+        if(e.getKeyCode()==KeyEvent.VK_LEFT){
             player.moveLeft();
         }
 
-        if(e.getKeyCode() == KeyEvent.VK_RIGHT){
+        if(e.getKeyCode()==KeyEvent.VK_RIGHT){
             player.moveRight();
         }
     }

@@ -1,17 +1,21 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class PlayerCar {
-
-    private int x = 150;
-    private int y = 450;
+public class PlayerCar extends Vehicle {
 
     private Image carImage;
 
     public PlayerCar(){
+        super(150,450);
         carImage = new ImageIcon(getClass().getResource("/Car.png")).getImage();
     }
 
+    @Override
+    public void move(){
+        // ไม่ต้องเคลื่อนที่เอง
+    }
+
+    @Override
     public void draw(Graphics g){
         g.drawImage(carImage,x,y,80,120,null);
     }
@@ -25,6 +29,6 @@ public class PlayerCar {
     }
 
     public Rectangle getBounds(){
-        return new Rectangle(x,y,80,120);
+        return super.getBounds(80,120);
     }
 }

@@ -2,35 +2,25 @@ import java.awt.*;
 
 public abstract class Vehicle implements Movable {
 
-    protected int lane;
-    protected int y;
-    protected int speed;
+    protected int x, y, speed;
 
-    public Vehicle(int lane,int speed){
-
-        this.lane = lane;
-        this.speed = speed;
-        this.y = 0;
+    public Vehicle(int x, int y) {
+        this.x = x;
+        this.y = y;
+        this.speed = 5;
     }
 
-    public int getLane(){
+    // Abstract method
+    public abstract void move();
 
-        return lane;
-
-    }
-
-    public int getY(){
-
-        return y;
-
-    }
-
-    public void setLane(int lane){
-
-        this.lane = lane;
-
+    // Overloading (ใช้หรือไม่ใช้ก็ได้)
+    public void move(int extraSpeed){
+        y += (speed + extraSpeed);
     }
 
     public abstract void draw(Graphics g);
 
+    public Rectangle getBounds(int w, int h){
+        return new Rectangle(x,y,w,h);
+    }
 }

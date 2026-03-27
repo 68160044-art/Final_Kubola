@@ -4,11 +4,8 @@ import java.util.Random;
 
 public class Coin {
 
-    private int x;
-    private int y;
-
+    private int x, y;
     private Image coinImage;
-
     private Random rand = new Random();
 
     public Coin(){
@@ -19,22 +16,15 @@ public class Coin {
         g.drawImage(coinImage,x,y,40,40,null);
     }
 
-    public void move(int speed){
-        y += speed;
+    public void move(){
+        y += 5;
     }
 
     public void resetPosition(int enemyX){
 
         do{
-
             int lane = rand.nextInt(2);
-
-            if(lane==0){
-                x = 120;
-            }else{
-                x = 240;
-            }
-
+            x = (lane==0)?120:240;
         }while(x == enemyX);
 
         y = -50;
