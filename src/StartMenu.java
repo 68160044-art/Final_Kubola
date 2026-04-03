@@ -6,7 +6,7 @@ public class StartMenu extends JFrame {
 
     public StartMenu() {
 
-        setTitle("Car Runner Game");
+        setTitle("2D Car Racing Game");
         setSize(400, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -16,7 +16,7 @@ public class StartMenu extends JFrame {
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.setBackground(Color.BLACK);
 
-        JLabel title = new JLabel("CAR RUNNER GAME");
+        JLabel title = new JLabel("2D Car Racing Game");
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
         title.setForeground(Color.WHITE);
         title.setFont(new Font("Arial", Font.BOLD, 24));

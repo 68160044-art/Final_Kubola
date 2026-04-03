@@ -13,14 +13,14 @@ public abstract class Vehicle implements Movable {
     // Abstract method
     public abstract void move();
 
-    // Overloading (ใช้หรือไม่ใช้ก็ได้)
-    public void move(int extraSpeed){
+    // Method Overloading
+    public void move(int extraSpeed) {
         y += (speed + extraSpeed);
     }
 
     public abstract void draw(Graphics g);
 
-    public Rectangle getBounds(int w, int h){
-        return new Rectangle(x,y,w,h);
+    public Rectangle getBounds(int w, int h) {
+        return new Rectangle(x, y, w, h);
     }
 }
